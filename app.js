@@ -11,11 +11,17 @@
 // console.log(`Total memory:${totalMemory}`);
 // console.log(`Free memory:${freeMemory}`);
 
-import fs from "fs";
-// const files = fs.readdirSync("./");
-// console.log(files);
+// import fs from "fs";
+// // const files = fs.readdirSync("./");
+// // console.log(files);
 
-fs.readdir("./", function (err, files) {
-  if (err) console.log("error", err);
-  else console.log("result", files);
-});
+// fs.readdir("./", function (err, files) {
+//   if (err) console.log("error", err);
+//   else console.log("result", files);
+// });
+
+import EventEmitter from "events";
+const emitter = new EventEmitter();
+
+//Raise an event
+emitter.emit("messageLogged");
