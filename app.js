@@ -23,5 +23,10 @@
 import EventEmitter from "events";
 const emitter = new EventEmitter();
 
+//regester an event
+emitter.on("messageLogged", function () {
+  console.log("listner called");
+});
+
 //Raise an event
 emitter.emit("messageLogged");
