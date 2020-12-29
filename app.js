@@ -20,13 +20,24 @@
 //   else console.log("result", files);
 // });
 
+// import EventEmitter from "events";
+// const emitter = new EventEmitter();
+
+// //regester an event
+// emitter.on("messageLogged", (arg) => {
+//   console.log("listner called", arg);
+// });
+
+// //Raise an event
+// emitter.emit("messageLogged", { id: 1, url: "http://" });
+
 import EventEmitter from "events";
-const emitter = new EventEmitter();
+import Logger from "./logger.js";
+const logger = new Logger();
 
 //regester an event
-emitter.on("messageLogged", function () {
-  console.log("listner called");
+logger.on("messageLogged", (arg) => {
+  console.log("listner called", arg);
 });
 
-//Raise an event
-emitter.emit("messageLogged");
+logger.log("message");
