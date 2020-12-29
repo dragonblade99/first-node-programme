@@ -31,13 +31,25 @@
 // //Raise an event
 // emitter.emit("messageLogged", { id: 1, url: "http://" });
 
-import EventEmitter from "events";
-import Logger from "./logger.js";
-const logger = new Logger();
+// import EventEmitter from "events";
+// import Logger from "./logger.js";
+// const logger = new Logger();
 
-//regester an event
-logger.on("messageLogged", (arg) => {
-  console.log("listner called", arg);
+// //regester an event
+// logger.on("messageLogged", (arg) => {
+//   console.log("listner called", arg);
+// });
+
+// logger.log("message");
+
+import http from "http";
+
+const server = http.createServer();
+
+server.on("connection", (socket) => {
+  console.log("new conection...");
 });
 
-logger.log("message");
+server.listen(3000);
+
+console.log("listening on port 3000...");
